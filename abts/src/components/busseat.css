@@ -1,0 +1,65 @@
+.rm_title_container
+{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    text-align: start;
+    border-radius: 10px;
+    color: rgb(42,180,232);
+}
+
+.bus_seat_container
+{
+    display: flex;
+    width: 70%;
+    margin: 0px auto;
+    align-items: center;
+    justify-content:  center;
+
+}
+.seat
+{
+    width :30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    border-radius: 10px;
+    color:gray;
+    border: 0.2px solid gray;
+    cursor: pointer;
+}
+.con
+{
+    display:flex;
+  border: 0.21px solid lightgray;
+  border-radius: 8px;
+    flex-direction: column;
+    margin-top: 20px;
+    padding: 10px;
+    justify-content: center;
+
+}
+tbody{
+    width :100%
+}
+table>tbody>tr>td
+{
+    padding: 4px;
+   
+}
+table{
+    
+    width: 100%;
+}
+
+.Seat_icon
+{
+    color: lightgray !important;
+    cursor: pointer;
+}
+.Seat_icon:hover
+{
+    color: lightgreen !important;
+}
