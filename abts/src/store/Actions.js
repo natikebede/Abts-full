@@ -5,6 +5,7 @@ export const setpassanger= (passanger)=>{
              payload:passanger
             }
 }
+//for setting destination
 export const set_destination=(destination)=>
 {
    return {
@@ -12,3 +13,13 @@ export const set_destination=(destination)=>
       payload :destination
    }
 }
+//for settign user cashier 
+
+export const set_user=(user)=>
+{
+   return {
+      type:acTypes.set_user,
+      payload:user
+   }
+}
+

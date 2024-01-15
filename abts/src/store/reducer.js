@@ -19,6 +19,10 @@ export const initialState=
             return{
                 ...state,selected_destination:action.payload
             };
+        case acTypes.set_user:
+            return{
+                ...state,user:action.payload
+            };
         
         default:
             return state;
