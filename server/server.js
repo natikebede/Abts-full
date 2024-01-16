@@ -24,7 +24,7 @@ app.post("/Login",async(req,res)=>
         )
         // console.log (result);
     } catch (error) {
-        
+        console.log(error);
     }
 })
 

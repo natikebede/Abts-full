@@ -45,4 +45,6 @@ const busList=[
                     Seats_available:"20",
                     },
 ];
+export const Data_reserved_seat=[1,5,49,44,15,7,6,22,44];
+export const Data_selected_Seat=[5];
 export default busList;

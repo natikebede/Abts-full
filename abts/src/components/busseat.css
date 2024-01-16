@@ -61,5 +61,14 @@ table{
 }
 .Seat_icon:hover
 {
-    color: lightgreen !important;
+    color: rgb(227, 238, 144) !important;
+}
+.Seat_icon_reserved
+{
+    color: rgb(94, 93, 93) !important;
+    cursor: pointer;
+}
+.Seat_icon_selected
+{   
+    color: rgb(7, 176, 7) !important;
 }
