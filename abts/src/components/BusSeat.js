@@ -1,10 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./busseat.css";
 import TitleHeader from './TitleHeader';
 import Seatcontainer from './Seatcontainers';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
-function BusSeat() {
-    const seats=[];
+import { useDispatch ,useSelector} from 'react-redux';
+import { set_reserved_seats } from '../store/Actions';
+import api from '../Apis/api';
+function BusSeat({travel_date,trip_id}) {
+  const dispatch= useDispatch();
+  const reserved_Seats= useSelector(state=>state.cashier_reducer.reserved_seat);
+  const seats =[];
+  const set_seats= async()=>
+  {
+    
+      const response= await api.get(`/Get_all_seats/${trip_id}/${travel_date}`);
+     
+      if(response.data.seats.length!==0)
+      {
+        response.data.seats.map((seat)=>{
+          seats.push(seat.reser_seat);
+          
+   
+      });
+      }
+ 
+      dispatch(set_reserved_seats(seats))
+   
+  }
+   useEffect(()=>{
+
+
+    set_seats();
+
+   },[])
         
         
     
@@ -69,50 +97,50 @@ function BusSeat() {
         <td> <Seatcontainer index={29}/> </td>
         <td> <Seatcontainer index={30}/> </td>
         <td>  </td>
-        <td> <Seatcontainer index={31}/> </td>  
+        <td>  </td>  
+        <td>  </td>
+      </tr>
+      <tr>
+         <td> <Seatcontainer index={31}/> </td>  
         <td> <Seatcontainer index={32}/> </td>
-      </tr>
-      <tr>
-        <td> <Seatcontainer index={33}/> </td>
+        <td>  </td>
+        <td> <Seatcontainer index={33}/> </td>  
         <td> <Seatcontainer index={34}/> </td>
-        <td>  </td>
-        <td> <Seatcontainer index={35}/> </td>  
+      </tr>
+      <tr>
+        <td> <Seatcontainer index={35}/> </td>
         <td> <Seatcontainer index={36}/> </td>
-      </tr>
-      <tr>
-        <td> <Seatcontainer index={37}/> </td>
+        <td>  </td>
+        <td> <Seatcontainer index={37}/> </td>  
         <td> <Seatcontainer index={38}/> </td>
-        <td>  </td>
-        <td> <Seatcontainer index={39}/> </td>  
+      </tr>
+      <tr>
+        <td> <Seatcontainer index={39}/> </td>
         <td> <Seatcontainer index={40}/> </td>
-      </tr>
-      <tr>
-        <td> <Seatcontainer index={41}/> </td>
+        <td>  </td>
+        <td> <Seatcontainer index={41}/> </td>  
         <td> <Seatcontainer index={42}/> </td>
-        <td>  </td>
-        <td> <Seatcontainer index={43}/> </td>  
+      </tr>
+      <tr>
+        <td> <Seatcontainer index={43}/> </td>
         <td> <Seatcontainer index={44}/> </td>
-      </tr>
-      <tr>
-        <td> <Seatcontainer index={45}/> </td>
+        <td>  </td>
+        <td> <Seatcontainer index={45}/> </td>  
         <td> <Seatcontainer index={46}/> </td>
-        <td>  </td>
-        <td> <Seatcontainer index={47}/> </td>  
+      </tr>
+      <tr>
+        <td> <Seatcontainer index={47}/> </td>
         <td> <Seatcontainer index={48}/> </td>
-      </tr>
-      <tr>
-        <td> <Seatcontainer index={49}/> </td>
+        <td>  </td>
+        <td> <Seatcontainer index={49}/> </td>  
         <td> <Seatcontainer index={50}/> </td>
-        <td>  </td>
-        <td> <Seatcontainer index={51}/> </td>  
-        <td> <Seatcontainer index={52}/> </td>
       </tr>
       <tr>
-        <td> <Seatcontainer index={53}/> </td>
+        <td> <Seatcontainer index={51}/> </td>
+        <td> <Seatcontainer index={52}/> </td>
+        <td> <Seatcontainer index={53}/> </td>  
         <td> <Seatcontainer index={54}/> </td>
-        <td>  </td>
-        <td> <Seatcontainer index={3}/> </td>  
-        <td> <Seatcontainer index={4}/> </td>
+        <td> <Seatcontainer index={55}/> </td>
       </tr>
      
       

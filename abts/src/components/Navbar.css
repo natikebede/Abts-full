@@ -108,3 +108,38 @@
 {
     width: 90%;
 }
+ .username_container
+ {
+    display :flex;
+    justify-content: space-around;
+    align-items: center;
+ 
+ }
+ .us_container
+ {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ .us_container>h6
+ {
+    font-size: 14px;
+    color: black;
+ }
+ .us_container>h5
+ {
+    font-size: 12px;
+    color:gray;
+ }
+ .sign_out{
+
+    font-size: 30px !important;
+    color:rgb(42,180,232);
+    padding: 5px;
+ }
+ .sign_out:hover
+ {
+    background-color: lightgray;
+    color: rgb(235, 122, 122);
+    border-radius: 4px;
+ }

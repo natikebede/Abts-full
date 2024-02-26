@@ -1,5 +1,6 @@
 const busList=[
-    {
+    { 
+    trip_id:1,
     bus_ID:1,
     busImage:"../Assets/bus-png-40027.png",
     busName:"Hawassa-Buss-01",
@@ -9,6 +10,7 @@ const busList=[
     Seats_available:"20",
     },
     {
+        trip_id:2,
         bus_ID:2,
         busImage:"../Assets/bus-png-40027.png",
         busName:"harar-Buss-01",
@@ -18,6 +20,7 @@ const busList=[
         Seats_available:"20",
         },
         {
+            trip_id:3,
             bus_ID:3,
             busImage:"../Assets/bus-png-40027.png",
             busName:"mekele-Buss-01",
@@ -27,6 +30,7 @@ const busList=[
             Seats_available:"20",
             },
             {
+                trip_id:4,
                 bus_ID:4,
                 busImage:"../Assets/bus-png-40027.png",
                 busName:"bahirdar-Buss-01",

@@ -80,7 +80,7 @@
 
 .reservationfrom_container
 {
-    width: 40%;
+    width: 100%;
     background-color:  white;
     border-radius: 8px;
     padding: 10px;
@@ -88,15 +88,40 @@
 }
 .check_out_container
 {
-    width :30%;
+    
     background-color: gray;
     background-color:  white;
     border-radius: 8px;
 }
 .seat_container
 {
-    width: 30%;
+    width: 50%;
     background-color:  white;
     border-radius: 8px;
 
+}
+.layout
+{
+    display: flex;
+ 
+    
+}
+.layout_1
+{
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.layout_2
+{
+    flex: 0.3;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+   
+   
+    
 }

@@ -1,44 +1,84 @@
 import React, { useState } from 'react'
-import {Data_reserved_seat} from "../Dummydata/DummyData.js"
-import { Data_selected_Seat } from '../Dummydata/DummyData.js';
+import { set_seat , book_seat} from '../store/Actions';
 import EventSeatIcon from '@mui/icons-material/EventSeat';
+import { useSelector,useDispatch } from 'react-redux';
 function Seatcontainer({index}) {
-    const [selected_seat ,set_Selected_seat] =useState(Data_selected_Seat);
-    const [reserved_seat,set_reserved_sear]= useState(Data_reserved_seat);
-    const selected_status=selected_seat.includes(index);
-    console.log("the status is ",selected_status)
+    // const [selected_seat ,set_Selected_seat] =useState([]);
+    // const [reserved_seat,set_reserved_sear]= useState(Data_reserved_seat);
+    // const selected_status=selected_seat.filter((seat)=> seat==index)
+    const dispatch=useDispatch();
+    const selected_seats= useSelector(state=>state.cashier_reducer.selected_seat);
+    const reserved_Seats= useSelector(state=>state.cashier_reducer.reserved_seat);
+    const Booked_Seats =useSelector(state=>state.cashier_reducer.Booked_seat);
+ 
+    const reserved_status=reserved_Seats.includes(index);
+    const Booked_status= Booked_Seats.includes(index);
+    const selected_status=selected_seats.includes(index);
     const handelSelected=()=>
-    {
-        
+    {   
+
         if(!selected_status)
-        {
-            
+        { 
+            dispatch(set_seat(index));
         }  
-        set_Selected_seat(...selected_seat,index);
+        else{
+            
+        }
       
     }
-   const reserved_status=reserved_seat.includes(index);
-   console.log(reserved_status);
+    const handel_deSelected=()=>
+    {
+        if(selected_status)
+        { const deSelect=selected_seats.filter((seat)=> seat!==index)
+            console.log(deSelect)
+            dispatch(selected_seats(deSelect));
+        }  
+
+    }
+
    
         if (reserved_status)
         {
                 return (
-                    <EventSeatIcon  className='Seat_icon_reserved'/>
+                    <div className='seat_position'>
+                        <EventSeatIcon  className='Seat_icon_reserved'/>
+                        <span>{index}</span>
+                    </div>
+                    
                 );
         }
+        else if( Booked_status)
+        {
+            return (
+                <div className='seat_position'>
+                    <EventSeatIcon  className='Seat_icon_booked'/>
+                    <span>{index}</span>
+                </div>
+                
+            );
+        }
+
         else
         {
            
             if(selected_status)
             {
                 return (
-                    <EventSeatIcon  className='Seat_icon_selected'/>
+                    <div className='seat_position'>
+                         <EventSeatIcon  className='Seat_icon_selected'/>
+                         <span>{index}</span>
+                    </div>
+                   
                 );
             }
             else
             {
                 return (
-                    <EventSeatIcon onClick={()=>handelSelected()} className='Seat_icon'/>
+                    <div className='seat_position'>
+                        <EventSeatIcon onClick={()=>handelSelected()} className='Seat_icon'/>
+                        <span>{index}</span>
+                    </div>
+                    
                 );
 
             }

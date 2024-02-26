@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import "./Navbar.css";
 import ListIcon from '@mui/icons-material/List';
-import NavItem from './navigationdata';
-import { Link } from 'react-router-dom';
-function NavBar({children}) {
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector,useDispatch } from 'react-redux';
+import { reset_state } from '../store/Actions';
+import SettingsPowerIcon from '@mui/icons-material/SettingsPower';
+function NavBar({children,NavItem}) {
   const [isopen, Setopen]= useState(false);
+  const user= useSelector(state=>state.cashier_reducer.user)
+
+
+  
   const toggle=()=>
   {
     Setopen(!isopen);
@@ -21,14 +27,15 @@ function NavBar({children}) {
                     <ListIcon onClick={toggle} className='bars'/>
                 </div>
             </div>
+          
             <div className='nav_section'>
                
             {
                 NavItem.map((nav ,index)=>{
                     return(
-                    <Link to={nav.path} className='nav_options'>
+                    <Link  key= {index} to={nav.path} className='nav_options'>
                 
-                    <div className='nav_icons' key= {index}>
+                    <div className='nav_icons'>
                         {nav.icon}
                     </div>
                     <div className='nav_options_text' style={{display:isopen? "block":"none"}}>
